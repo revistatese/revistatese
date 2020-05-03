@@ -1,3 +1,4 @@
+import { Inicio } from './../models/inicio.interface';
 import { RevistaI } from './../models/revista.interface';
 
 import { Injectable } from '@angular/core';
@@ -8,11 +9,13 @@ import { map, finalize } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FileI } from '../models/file.interface';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class RevistaServiceService {
   private postsCollection: AngularFirestoreCollection<RevistaI>;
+  private portadaCollection: AngularFirestoreCollection<Inicio>;
   private filePath: any;
   private filePathPDF:any;
   private downloadURL: Observable<string>;
@@ -26,7 +29,7 @@ export class RevistaServiceService {
     private storage: AngularFireStorage
   ) {
     this.postsCollection = afs.collection<RevistaI>('Revistas');
-    
+    this.portadaCollection=afs.collection<Inicio>('Portada');
   }
 
   public getAllPosts(): Observable<RevistaI[]> {
@@ -42,6 +45,21 @@ export class RevistaServiceService {
           })
         )
       );
+  }
+
+  public getAllPortadas():Observable<Inicio[]>{
+    return this.afs
+    .collection('Portada')
+    .snapshotChanges()
+    .pipe(
+      map(actions =>
+        actions.map(a =>{
+          const data =a.payload.doc.data() as Inicio;
+          const id =a.payload.doc.id;
+          return{id, ...data};
+        })
+      )
+    );
   }
  
 

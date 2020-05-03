@@ -1,8 +1,13 @@
 import { MaterialModule } from './../../material/material.module';
 import { RevistaI } from './../../models/revista.interface';
 import { RevistaServiceService } from './../../services/revista-service.service';
-import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatSort } from '@angular/material/sort';
+import {MatPaginator} from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit, ViewChild, Input, AfterViewInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+
 
 
 
@@ -11,48 +16,29 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   templateUrl: './edit-post.component.html',
   styleUrls: ['./edit-post.component.css']
 })
-export class EditPostComponent implements OnInit {
-  private image: any;
-  private imageOriginal: any;
+export class EditPostComponent implements OnInit, AfterViewInit {
+  @Input() post:RevistaI;
+  private revistas:RevistaI[];
+  displayedColumns: String[] = ['number','numero', 'actions'];
 
-  @Input() post: RevistaI;
+  dataSource = new MatTableDataSource();
 
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
   constructor(private postSvc: RevistaServiceService) { }
   ngOnInit() {
-    this.image = this.post.imagenR;
-    this.imageOriginal = this.post.imagenR;
-    this.initValuesForm();
+    this.postSvc
+      .getAllPosts()
+      .subscribe(posts => (this.dataSource.data = posts));
+  }
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
-
-
-  public editPostForm = new FormGroup({
-    numeroR: new FormControl('', Validators.required),
-    imagenR: new FormControl('', Validators.required),
-     });
-
- 
-
-  editPost(post: RevistaI) {
-    if (this.image === this.imageOriginal) {
-      post.imagenR = this.imageOriginal;
-      this.postSvc.editPostById(post);
-    } else {
-      this.postSvc.editPostById(post, this.image);
-    }
-  }
-
-  handleImage(event: any): void {
-    this.image = event.target.files[0];
-  }
-
-  private initValuesForm(): void {
-    this.editPostForm.patchValue({
-      id: this.post.id,
-      Numero: this.post.numeroR
-      
-     
-    });
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }

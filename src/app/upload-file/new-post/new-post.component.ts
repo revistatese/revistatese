@@ -12,8 +12,6 @@ import{NgForm} from '@angular/forms';
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
-  show:boolean =true ;
-  show2:boolean=false;
   private image: any;
   private pdf: any;
   constructor(public postSvc:RevistaServiceService) { }

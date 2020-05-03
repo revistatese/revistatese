@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage'; 
 import {finalize} from 'rxjs/operators';
 import {Observable} from 'rxjs/internal/Observable';
+import { Inicio } from '../models/inicio.interface';
+import { RevistaServiceService } from '../services/revista-service.service';
 @Component({
   selector: 'app-upload-file',
   templateUrl: './upload-file.component.html',
@@ -20,7 +22,7 @@ export class UploadFileComponent implements OnInit {
 
   ejecuto: boolean;
 
-  constructor(private router : Router, private authService : AuthService, private storage : AngularFireStorage) { }
+  constructor(private router : Router, private authService : AuthService, private storage : AngularFireStorage,private postSvc: RevistaServiceService) { }
 
 uploadPercent: Observable<number>;
 urlImage: Observable<string>;
@@ -107,4 +109,6 @@ this.uploadPercent= task.percentageChanges();
 task.snapshotChanges().pipe(finalize(()=> this.urlPDF = ref.getDownloadURL())).subscribe();
 
   }
+
+
 }
