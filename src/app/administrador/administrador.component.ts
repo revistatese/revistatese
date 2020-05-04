@@ -1,3 +1,4 @@
+import { Inicio } from './../models/inicio.interface';
 import { RevistaI } from './../models/revista.interface';
 
 import { RevistaServiceService } from './../services/revista-service.service';
@@ -22,7 +23,7 @@ import Swal from 'sweetalert2';
 export class AdministradorComponent implements OnInit, AfterViewInit {
   @Input() post:RevistaI;
   private revistas:RevistaI[];
-  displayedColumns: String[] = ['numero', 'actions'];
+  displayedColumns: String[] = ['numero', 'actions',];
 
   dataSource = new MatTableDataSource();
 
@@ -71,12 +72,16 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
     });
 
   }
-  onEdit(revista:RevistaI){
-    this.postSvc.selectedRevista=Object.assign({},revista);
+  onEdit(portada:Inicio){
+    this.postSvc.selectedInicio=Object.assign({},portada);
   }
 onPreUpdate(revista:RevistaI){
   console.log('Revista',revista);
   this.postSvc.selectedRevista=Object.assign({},revista)
+}
+onPrePortada(revista:Inicio){
+  console.log('Revista',revista);
+  this.postSvc.selectedInicio=Object.assign({},revista);
 }
   onNewPost() {
     this.openDialog();

@@ -1,4 +1,5 @@
-import { Inicio } from './../models/inicio.interface';
+import { Inicio } from 'src/app/models/inicio.interface';
+
 import { RevistaI } from './../models/revista.interface';
 
 import { Injectable } from '@angular/core';
@@ -21,12 +22,15 @@ export class RevistaServiceService {
   private downloadURL: Observable<string>;
   private downloadURLPDF: Observable<string>;
   revistalista: AngularFireList<any>;
+  portadalista:AngularFireList<any>;
   selectedRevista: RevistaI = new RevistaI();
+  selectedInicio: Inicio = new Inicio();
 
 
   constructor(
     private afs: AngularFirestore,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+ 
   ) {
     this.postsCollection = afs.collection<RevistaI>('Revistas');
     this.portadaCollection=afs.collection<Inicio>('Portada');
@@ -66,10 +70,17 @@ export class RevistaServiceService {
   public getOnePost(id: RevistaI): Observable<RevistaI> {
     return this.afs.doc<RevistaI>(`Revistas/${id}`).valueChanges();
   }
+  public getOnePortada(id:Inicio):Observable<Inicio>{
+    return this.afs.doc<Inicio>(`Portada/${id}`).valueChanges();
+  }
 
   public deletePostById(post: RevistaI) {
     return this.postsCollection.doc(post.id).delete();
   }
+  public deletePortadaById(portada:Inicio){
+    return this.portadaCollection.doc(portada.id).delete();
+  }
+
 
   public editPostById(post: RevistaI, newImage?: FileI, newpdf?:FileI) {
     if (newImage && newpdf) {
@@ -142,6 +153,26 @@ export class RevistaServiceService {
     this.postsCollection.add(book);
   }
 /**/
+public preAddAndUpdatePortada(portada: Inicio): void {
+  this.savePortada(portada);
+  
 
+}
+
+private savePortada(portada: Inicio) {
+  const postObj = {
+    numeroR:portada.numeroR,
+    URLportada: portada.URLportada,
+    URLpdf: portada.URLpdf
+  };
+
+  if (portada.id) {
+    return this.portadaCollection.doc(portada.id).update(postObj);
+  } else {
+    return this.portadaCollection.add(postObj);
+  }
+  
+
+}
 
 }

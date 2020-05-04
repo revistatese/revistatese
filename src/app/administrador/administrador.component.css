@@ -14,6 +14,7 @@ background:rgba(255, 255, 254, 0.877);
 }
     th.mat-sort-header-sorted {
     color: rgb(252, 10, 10);
+
   }
 .mat-form-field{
     font: normal;
@@ -26,6 +27,10 @@ background:rgba(255, 255, 254, 0.877);
     color: rgb(0, 0, 0);
       
 }
+td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
+    padding-left: 15px;
+width: 2%;
+}
 .container-btn-new{
     display: flex;
     justify-content: flex-end;
@@ -34,40 +39,44 @@ background:rgba(255, 255, 254, 0.877);
 
 }
 
-  button{
-      background: none;
-      border: 0px;
-      padding: 0px;
-      margin: 0px;
-      margin-right: 12px;
-      outline: none;
-  }
+
 .btn-primary{
     background: rgb(0, 119, 255);
     height: 35px;
 }
   .fa-pen-square{
-    background: rgb(54, 197, 207);
-    color: rgb(255, 255, 255);
-    padding: 10px;
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    padding: 2px;
     margin: 5px 5px 5px 5px;
 }
 .fa-trash{
     background: rgb(255, 0, 0);
     color: rgb(255, 255, 255);
-    padding: 10px;
+    padding: 2px;
     margin: 5px 5px 5px 5px;
 }
 .fa-plus-square{
-    background: rgb(52, 163, 238);
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
     color: rgb(255, 255, 255);
-    padding: 10px;
+    padding: 2px;
     margin: 5px 5px 5px 5px;
 }
 button:hover{
     background: rgb(207, 207, 209);
  }
- 
+ button{
+     padding: 2px 2px 2px 2px;
+     
+     margin-left: 8px;
+ }
+ .btn-danger{
+    background: rgb(255, 0, 0);
+ }
+
  .Boton{
     color: rgb(255, 255, 255);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

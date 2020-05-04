@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, observable } from 'rxjs';
 import { RevistaI } from './../models/revista.interface';
 import { RevistaServiceService } from './../services/revista-service.service';
+import { Inicio } from '../models/inicio.interface';
+import { NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-inicio',
@@ -9,12 +12,13 @@ import { RevistaServiceService } from './../services/revista-service.service';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-  public revistas$:Observable<RevistaI[]>;
+  public portadas$:Observable<Inicio[]>;
 
   constructor(private postSvc: RevistaServiceService) { }
 
   ngOnInit() {
-     this.revistas$=this.postSvc.getAllPosts();
+     this.portadas$=this.postSvc.getAllPortadas();
   }
+ 
 
 }

@@ -2,22 +2,24 @@
 <header id="home">
     <div class="hero-section">
       <div class="container">
-        <div class="row">
+        <div class="row" *ngIf="portadas$ | async as portadas">
           <div class="col-lg-7">
-            <div class="hero-text">
+            <div class="hero-text" >
               <h1 class="portada"><img src="https://firebasestorage.googleapis.com/v0/b/tecnocultura-df5ce.appspot.com/o/TECNOCULTURALOGO.gif?alt=media&token=f566d6cb-9918-405e-8eb1-bd78e95b63c0" alt="Revista TecnoCultura" width="446" height="75"/></h1>
               <p class="portada">La revista Tecnocultura es un órgano de difusión del Tecnológico de Estudios Superiores de Ecatepec (TESE); su publicación es cuatrimestral y tiene como objetivo principal la divulgación del pensamiento, al igual que los avances científicos, tecnológicos y humanísticos, ya sea que se generen en las diferentes áreas académicas del TESE o de origen externo, pero que logren ser de interés general.</p>
             </div>
           </div>
-          <div class="col-lg-5" >
-            <div>  <a href="https://firebasestorage.googleapis.com/v0/b/testresvista-66c5f.appspot.com/o/Articulos%2F49.pdf?alt=media&token=6a6c0107-7a80-4c9c-b3ed-2e357f6d9463" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/revistatecnocultura-ef63f.appspot.com/o/Portadas%2F49.jpg?alt=media&token=d28d69cc-3460-4cdc-82c9-72f9fde5012b" alt="TecnoCultura 49" width="350" class="img-fluid book-mockup"> <img src="https://firebasestorage.googleapis.com/v0/b/tecnocultura-df5ce.appspot.com/o/logolatinIndex.jpg?alt=media&token=e4342a54-001d-4adf-9f87-ad6329620197" width="100" height="28" alt=""/></a> </div>
+          <div class="col-lg-5" *ngFor="let portada of portadas">
+            <div>  <a href="{{portada.URLpdf}}" target="_blank">
+              <img src="{{portada.URLportada}}" alt="TecnoCultura 49" width="350" class="img-fluid book-mockup"> 
+              <img src="https://firebasestorage.googleapis.com/v0/b/tecnocultura-df5ce.appspot.com/o/logolatinIndex.jpg?alt=media&token=e4342a54-001d-4adf-9f87-ad6329620197" width="100" height="28" alt=""/></a> </div>
           </div>
         </div>
       </div>
     </div>
     
   </header>
-  
+ 
   
   <section class="statics"> 
     <table>

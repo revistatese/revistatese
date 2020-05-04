@@ -16,16 +16,21 @@
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef  >Acciones</th>
     <td mat-cell *matCellDef="let element">
-      <button  (click)="onPreUpdate(element)">
+      <button type="button" class="btn btn-info" (click)="onPreUpdate(element)">
         <i class="fas fa-pen-square"></i>
       Editar
       </button>
-      <button  (click)="onDeletePost(element)">
+      <button type="button" class="btn btn-danger" (click)="onDeletePost(element)">
         <i class="fas fa-trash"></i>
         Eliminar
            </button>
-    </td>
+           <button type="button" class="btn btn-success" (click)="onPreUpdate(element)">
+            <i class="fas fa-plus-square"></i>
+          Añadir a inicio
+          </button>    
+               </td>
   </ng-container>
+  
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

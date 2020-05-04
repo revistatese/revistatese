@@ -5,7 +5,7 @@
         <form #RevistaForm="ngForm" (ngSubmit)="addNewPost(RevistaForm.value)">
    
           <h1 class="titulo">AGREGAR NUEVA REVISTA</h1>
-          <input type="hidden" name="id" [(ngModel)]="postSvc.selectedRevista.id">
+         <input type="hidden" name="id" [(ngModel)]="postSvc.selectedRevista.id"> 
         <div class="etiqueta">
           <label>Número de Revista: </label>
         </div>
