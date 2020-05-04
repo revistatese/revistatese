@@ -1,21 +1,22 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top alt animated navbar-custom" routerlink="/Inicio">
-    <div class="container"> <a class="navbar-brand" ><img src="https://firebasestorage.googleapis.com/v0/b/tecnocultura-df5ce.appspot.com/o/TECNOCULTURALOGO.gif?alt=media&token=f566d6cb-9918-405e-8eb1-bd78e95b63c0" width="205" height="35" alt=""/></a>
-      <button class="navbar-toggler material-ripple" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item"> <a class="nav-link" routerLink="/Inicio">Inicio</a> </li>
-          <li  *ngIf="!authService.isLoggedIn" class="nav-item"> <a class="nav-link" routerLink="/Conocenos">Conócenos</a> </li>
-          <li  *ngIf="!authService.isLoggedIn" class="nav-item"> <a class="nav-link" routerLink="/Lineamientos">Lineamientos</a> </li>
-          <li *ngIf="!authService.isLoggedIn" class="nav-item"> <a class="nav-link"  routerLink="/Anteriores">Números Anteriores</a> </li>
-          <li  *ngIf="!authService.isLoggedIn" class="nav-item"> <a class="nav-link" routerLink="/Editorial">Editorial</a> </li>
-          <li   *ngIf="!authService.isLoggedIn" class="nav-item"> <a class="nav-link" routerLink="/Contactanos">Contáctanos</a> </li>
-          <li  *ngIf="!authService.isLoggedIn" class="nav-item"> <a class="nav-link"  routerLink="/admin/list">Iniciar Sesión</a></li>
-          <li  *ngIf="authService.isLoggedIn" class="nav-item"> <a class="nav-link" routerLink="/Administrador">Administrador</a> </li>
-          <li  *ngIf="authService.isLoggedIn" class="nav-item"><a class="nav-link"  (click)="authService.logout()">Cerrar Sesión</a></li>
-        </ul>
-      </div>
+    <div class="container">
+        <a class="navbar-brand"><img src="https://firebasestorage.googleapis.com/v0/b/tecnocultura-df5ce.appspot.com/o/TECNOCULTURALOGO.gif?alt=media&token=f566d6cb-9918-405e-8eb1-bd78e95b63c0" width="205" height="35" alt="" /></a>
+        <button class="navbar-toggler material-ripple" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"> <a class="nav-link" routerLink="/Inicio">Inicio</a> </li>
+                <li *ngIf="!authService.isLoggedIn" class="nav-item"> <a class="nav-link" routerLink="/Conocenos">Conócenos</a> </li>
+                <li *ngIf="!authService.isLoggedIn" class="nav-item"> <a class="nav-link" routerLink="/Lineamientos">Lineamientos</a> </li>
+                <li *ngIf="!authService.isLoggedIn" class="nav-item"> <a class="nav-link" routerLink="/Anteriores">Números Anteriores</a> </li>
+                <li *ngIf="!authService.isLoggedIn" class="nav-item"> <a class="nav-link" routerLink="/Editorial">Editorial</a> </li>
+                <li *ngIf="!authService.isLoggedIn" class="nav-item"> <a class="nav-link" routerLink="/Contactanos">Contáctanos</a> </li>
+                <li *ngIf="!authService.isLoggedIn" class="nav-item"> <a class="nav-link" routerLink="/admin/list">Iniciar Sesión</a></li>
+                <li *ngIf="authService.isLoggedIn" class="nav-item"> <a class="nav-link" routerLink="/Administrador">Administrador</a> </li>
+                <li *ngIf="authService.isLoggedIn" class="nav-item"><a class="nav-link" (click)="authService.logout()">Cerrar Sesión</a></li>
+            </ul>
+        </div>
     </div>
-  </nav>
+</nav>
 
 <!--Name: Waldo-->
 
@@ -54,3 +55,14 @@
 <!--juan carlos-->
 
 <!--danieelll-->
+
+
+<!--Viviana Espindola-->
+
+<!--Jacqueline Santiago -->
+
+
+<!--Jacqueline Santiago -->
+
+
+<!--Jacqueline-->
