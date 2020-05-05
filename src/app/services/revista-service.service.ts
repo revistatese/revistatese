@@ -38,7 +38,7 @@ export class RevistaServiceService {
 
   public getAllPosts(): Observable<RevistaI[]> {
     return this.afs
-    .collection('Revistas',ref => ref.orderBy('numeroR','asc'))
+    .collection('Revistas',ref => ref.orderBy('numeroR','desc'))
       .snapshotChanges()
       .pipe(
         map(actions =>
@@ -53,7 +53,7 @@ export class RevistaServiceService {
 
   public getAllPortadas():Observable<Inicio[]>{
     return this.afs
-    .collection('Portada')
+    .collection('Portada',ref => ref.orderBy('numeroR','desc').limit(1))
     .snapshotChanges()
     .pipe(
       map(actions =>

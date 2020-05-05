@@ -3,6 +3,7 @@ import { RevistaServiceService } from './../../services/revista-service.service'
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import{NgForm} from '@angular/forms';
+import Swal from 'sweetalert2';
 
 
 
@@ -27,7 +28,14 @@ export class NewPostComponent implements OnInit {
   addNewPost(data: RevistaI) {
   
       console.log('valid', data);
-      this.postSvc.preAddAndUpdatePost(data, this.image,this.pdf);
+      Swal.fire({
+        position: 'top-start',
+        icon: 'success',
+        title: 'Se ha guardado exitosamente',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      this.postSvc.preAddAndUpdatePost(data, this.image,this.pdf); 
       this.resetForm();
   }
   get numeroR(){return this.RevistaForm.get('numeroR');}

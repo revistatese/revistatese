@@ -24,10 +24,14 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
   @Input() post:RevistaI;
   private revistas:RevistaI[];
   displayedColumns: String[] = ['numero', 'actions',];
+  show:boolean=false;
+  tabla:boolean=false;
+  vista:boolean=false;
+  inicio:boolean=true;
 
   dataSource = new MatTableDataSource();
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(private postSvc:RevistaServiceService, public dialog: MatDialog) { }
@@ -43,7 +47,8 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  applyFilter(filterValue: string) {
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 

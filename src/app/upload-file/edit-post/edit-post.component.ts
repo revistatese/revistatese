@@ -35,6 +35,7 @@ export class EditPostComponent implements OnInit, AfterViewInit {
     URLpdf: new FormControl('', Validators.required),
   });
   public portadas$:Observable<Inicio[]>;
+  eliminar:boolean=false;
   constructor(private postSvc: RevistaServiceService) { }
   ngOnInit() {
     this.postSvc
@@ -68,8 +69,8 @@ resetForm(RevistaForm?:NgForm){
 }
 onDeletePost(portada:Inicio) {
   Swal.fire({
-    title: '¿Estas Seguro?',
-    text: `No podrás revertir esta acción`,
+    title: 'Eliminar Portada',
+    text: `La portada será eliminada permanentemente`,
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',

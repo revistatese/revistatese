@@ -4,7 +4,7 @@
            <br>
       <h2>Conoce nuestros números anteriores</h2>
       <div class="row" *ngIf="revistas$ | async as revistas">
-        <div class="col-lg-4" *ngFor="let revista of revistas.slice().reverse()">
+        <div class="col-lg-4" *ngFor="let revista of revistas.slice()">
           <div class="pricing-table" >
             <div class="transition">
             <h4 button title="Revista número:  {{revista.numeroR}}">Número: {{revista.numeroR}} </h4>

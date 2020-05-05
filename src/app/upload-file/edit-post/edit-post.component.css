@@ -29,3 +29,10 @@
 table{
   margin-top:1px;
 }
+.bg-danger{
+  background: red;
+  text-align: center;
+  font-size: 20px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
