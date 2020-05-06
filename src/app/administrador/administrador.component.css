@@ -1,16 +1,15 @@
 
 /*css menu*/
 .list-group-item{
-  margin-top: 3rem;
+  margin-top: 4rem;
     padding-top: 2rem;
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 2px;
+    margin-right: 2px;
 font-size: 5px;
 background: black;
 text-transform: uppercase;
 letter-spacing: 1px;
 font-family:Arial, Helvetica, sans-serif;    
-border: solid rgba(255,255,255, .5) 1px;
 align-content: center;
 }
 
@@ -23,6 +22,12 @@ align-content: center;
 .list-group{
     font-size: 15px;
     text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.list-group-horizontal{
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 .list-group::after{
     background: black;
@@ -34,18 +39,23 @@ align-content: center;
     color: white;
     font-size: 15px !important;
 
-    
+}
+.menu{
+    margin-top: 2rem;
+
 }
 
 /*Fin css menu*/
 /*card administracion*/
 .card{
-    margin-top: 2rem;
+  width: 100%;
     text-align: center;
+    margin-top: 2rem;
 }
 /*CSS TABLA REVISTA*/
 table {
     width: 100%;
+    align-self:center;
 
   }
   .mat-table{
@@ -67,7 +77,7 @@ background:rgba(255, 255, 254, 0.877);
     width: 100%;
     margin: 0 auto;
     display: block;
-    margin-top: 5rem;
+    margin-top: 1rem;
     background:rgba(255, 255, 254, 0.877);
     color: rgb(0, 0, 0);
       
@@ -127,10 +137,9 @@ button:hover{
  }
  /*Fin CSS Tabla Revistas*/
 
-  .col-md-4{
-      width: 100%;
-      padding: 0px;
-      margin-top: 2rem;
+  .col-lg{
+      padding: 0px !important;
+      margin-top: 0px;
   }
  
  

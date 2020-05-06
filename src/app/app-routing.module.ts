@@ -14,6 +14,7 @@ import{LineamientosComponent} from './lineamientos/lineamientos.component'
 import {NAnterioresComponent} from './n-anteriores/n-anteriores.component'
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { ActualizaRevistaComponent } from './actualiza-revista/actualiza-revista.component';
+import { EditPostComponent } from './upload-file/edit-post/edit-post.component';
 
 
 
@@ -61,9 +62,9 @@ component:  NAnterioresComponent
                   path:  'actualiza-revista',
                   component:  ActualizaRevistaComponent
                   },
- {path: 'Revista', component: NewPostComponent}
+ {path: 'Revista', component: NewPostComponent},
   
-    
+  {path: 'Form', component:EditPostComponent}  
   ];
 
 

@@ -162,8 +162,8 @@ public preAddAndUpdatePortada(portada: Inicio): void {
 private savePortada(portada: Inicio) {
   const postObj = {
     numeroR:portada.numeroR,
-    URLportada: portada.URLportada,
-    URLpdf: portada.URLpdf
+    imagenR: portada.imagenR,
+    pdf: portada.pdf
   };
 
   if (portada.id) {

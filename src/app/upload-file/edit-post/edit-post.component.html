@@ -61,16 +61,16 @@
       
         <!-- Position Column -->
         <ng-container matColumnDef="numero">
-          <th mat-header-cell *matHeaderCellDef  mat-sort-header> Número de revista: </th>
+          <th mat-header-cell *matHeaderCellDef > Número de revista: </th>
           <td mat-cell *matCellDef="let element">{{element.numeroR}} </td>
         </ng-container>
         <ng-container matColumnDef="portada">
-          <th mat-header-cell *matHeaderCellDef  mat-sort-header> URL portada: </th>
-          <td mat-cell *matCellDef="let element">{{element.URLportada}} </td>
+          <th mat-header-cell *matHeaderCellDef > URL portada: </th>
+          <td mat-cell *matCellDef="let element">{{element.imagenR}} </td>
         </ng-container>
         <ng-container matColumnDef="pdf">
-          <th mat-header-cell *matHeaderCellDef  mat-sort-header> URL pdf: </th>
-          <td mat-cell *matCellDef="let element">{{element.URLpdf}} </td>
+          <th mat-header-cell *matHeaderCellDef > URL pdf: </th>
+          <td mat-cell *matCellDef="let element">{{element.pdf}} </td>
         </ng-container>
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef  >Acciones</th>
@@ -79,6 +79,12 @@
               <i class="fas fa-trash"></i>
               Eliminar
                  </button>   
+                 <!----NO BORRAR AUN--
+                 <button type="button" class="btn btn-warning" (click)="onPrePortada(element)">
+                  <i class="fas fa-trash"></i>
+                  Editar
+                     </button> 
+                    -->
                      </td>
         </ng-container>
         <!----Acciones-->
@@ -106,7 +112,7 @@
                   class="form-control"
                   name="numeroR"
                   #nombre="ngModel"
-                  [(ngModel)]="postSvc.selectedRevista.numeroR"
+                  [(ngModel)]="postSvc.selectedInicio.numeroR"
                   placeholder="Numero de revista"
                   >
               </div>
@@ -117,9 +123,10 @@
                 <input 
                 type="text"
                 class="form-control"
-                name="URLportada"
+                name="imagenR"
                 #nombre="ngModel"
-                [(ngModel)]="postSvc.selectedRevista.imagenR"
+           
+                [(ngModel)]="postSvc.selectedInicio.imagenR"
                 placeholder="Url de portada"
                 >
             </div>
@@ -130,9 +137,9 @@
                   <input 
                   type="text"
                   class="form-control"
-                  name="URLpdf"
+                  name="pdf"
                   #nombre="ngModel"
-                  [(ngModel)]="postSvc.selectedRevista.pdf"
+                  [(ngModel)]="postSvc.selectedInicio.pdf"
                   placeholder="Url de revista"
                   >
               </div>
@@ -155,11 +162,12 @@
   <div class="col-md-4">
     <div class="card" >
       <div class="card-body">
+        <h4 class="card-title">vista previa</h4>
     <div  *ngIf="portadas$ | async as portadas">
     
       <div  *ngFor="let portada of portadas">
-        <div>  <a href="{{portada.URLpdf}}" target="_blank">
-          <img src="{{portada.URLportada}}" alt="TecnoCultura 49" width="350" class="img-fluid book-mockup"> 
+        <div>  <a href="{{portada.pdf}}" target="_blank">
+          <img src="{{portada.imagenR}}" alt="TecnoCultura 49" width="350" class="img-fluid book-mockup"> 
           <img src="https://firebasestorage.googleapis.com/v0/b/tecnocultura-df5ce.appspot.com/o/logolatinIndex.jpg?alt=media&token=e4342a54-001d-4adf-9f87-ad6329620197" width="100" height="28" alt=""/></a> </div>
       </div>
     </div>
@@ -170,6 +178,9 @@
 
 </div>
 </div>
+
+
+
 
 
       

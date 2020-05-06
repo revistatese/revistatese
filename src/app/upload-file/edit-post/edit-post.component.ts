@@ -31,8 +31,8 @@ export class EditPostComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   public InicioForm = new FormGroup({
     numeroR:new FormControl('',Validators.required),
-    URLportada: new FormControl('', [Validators.required,Validators.minLength(2)]),
-    URLpdf: new FormControl('', Validators.required),
+    imagenR: new FormControl('', [Validators.required,Validators.minLength(2)]),
+    pdf: new FormControl('', Validators.required),
   });
   public portadas$:Observable<Inicio[]>;
   eliminar:boolean=false;
@@ -86,5 +86,9 @@ onDeletePost(portada:Inicio) {
     }
   });
 
+}
+onPrePortada(revista:Inicio){
+  console.log('Revista',revista);
+  this.postSvc.selectedInicio=Object.assign({},revista);
 }
 }

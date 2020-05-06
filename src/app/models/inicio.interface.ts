@@ -1,6 +1,6 @@
 export class Inicio{
     id?:string;
-    URLportada: string;
-    URLpdf: string;
+    imagenR: string;
+    pdf: string;
     numeroR:number;
 }

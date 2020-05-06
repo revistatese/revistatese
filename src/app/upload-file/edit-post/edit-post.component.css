@@ -2,32 +2,42 @@
   width: 100%;
 }
 .card{
- margin-top:8rem;
+ margin-top:1rem;
  text-align: center;
  outline: none;
  width: 100%;
+ background: initial;
+ color: white;
+ border: none;
 }
-.card-body{
-  background:initial;
+.formI{
+  background: white;
+}
+.card-title{
+  text-transform: uppercase;
 }
 .inicio{
   align-self: flex-end;
   margin-top: 1rem;
 }
 .col-md-6{
-  margin-top: 3rem;
+  margin-top: 1rem;
   margin-left: auto;
   margin-right: auto;
+  padding-top:0px ;
 }
 .col-md-4{
- 
+ margin-top: 1rem;
   display: initial;
   margin-left: auto;
   margin-right: auto;
   
 }
+.mt-5, .my-5 {
+  margin-top: 1rem!important;
+}
 table{
-  margin-top:1px;
+  margin-top:0rem;
 }
 .bg-danger{
   background: red;
@@ -35,4 +45,47 @@ table{
   font-size: 20px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
+}
+input{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+label{
+  text-transform: uppercase;
+}
+::placeholder{
+  text-transform: uppercase;
+}
+
+button{
+  margin-left:30%;
+}
+.btn-primary{
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn-danger{
+  margin-right: 90px;
+  text-align: center;
+}
+
+td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
+  padding-left: 15px;
+  padding-right: 0px;
+  text-align: center;
+width: 5%;
+}
+
+td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type, th.mat-header-cell:last-of-type {
+  padding-right: 4px;
+text-align: center;
+}
+td.mat-cell, td.mat-footer-cell{
+  padding-left:10px;
+  padding-right: 8px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  text-align: center !important;
 }

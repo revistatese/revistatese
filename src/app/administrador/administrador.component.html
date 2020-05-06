@@ -1,16 +1,17 @@
-<!---Menu-->
+<!---Menu -->
 <div class="list-group list-group-horizontal" class="d-flex flex-row-reverse bd-highlight">
-  <button type="button" class="list-group-item list-group-item-dark" (click)="show=!show" >
+  <button  type="button" class="list-group-item list-group-item-dark" (click)="show=!show">
   Formulario Revista </button>  
-  <button type="button" class="list-group-item list-group-item-dark" (click)="inicio=!inicio" >
-    Formulario Inicio </button> 
-  <button type="button" class="list-group-item list-group-item-dark" (click)="vista=!vista">Vista previa</button>
+  <button  type="button" class="list-group-item list-group-item-dark" (click)="vista=!vista">Vista previa</button>
 </div>
+
 <!---Fin menu-->
-<div class="card"> 
-  <h1>Administracion De Revistas</h1>
+
+<div class="card">
+  <h1>Administacion Revistas</h1>
 </div>
 <div class="container">
+ 
 <div class="row">
   <div class="col-lg">
     <mat-form-field>
@@ -37,7 +38,7 @@
         <i class="fas fa-trash"></i>
         Eliminar
            </button>
-           <button type="button" class="btn btn-success" (click)="onPreUpdate(element)" (click)="tabla=!tabla" >
+           <button type="button" class="btn btn-success" (click)="onEdit(element)" (click)="tabla=!tabla" >
             <i class="fas fa-plus-square"></i>
           Añadir a inicio
           </button>    
@@ -65,10 +66,9 @@
 </div>
 </div>
 <div class="row">
-  <div class="col-lg" *ngIf="inicio" >
-<app-edit-post></app-edit-post>
+   <app-edit-post></app-edit-post>
 </div>
-</div>
+
 <div class="row" *ngIf="vista">
 <app-n-anteriores></app-n-anteriores>
 </div>
