@@ -1036,6 +1036,7 @@ h1 {font-size:1.5em;margin-bottom:55px;}
 
 .slider img {
     width: 100%;
+    height: 100%;
 }
 
 @keyframes cambio {
@@ -1069,5 +1070,10 @@ h1 {font-size:1.5em;margin-bottom:55px;}
     }
   }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%; width: 100%;}
+body {       
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+
